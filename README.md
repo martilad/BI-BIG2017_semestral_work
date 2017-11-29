@@ -29,3 +29,18 @@ Semestrální práce může být na libovolné téma, důležité je dodržet n�
   -  v příloze použité konfigurační soubory (např. pro search engine)
   -  na základě dokumentace by mělo být možné se vstupními datasety kompletně replikovat vaší práci!
 >>>
+
+## Využití technologií
+- cassandra v dockeru pro uložení dat v NOSQL databázi
+- elasticsearch + kibana pro indexování a hlední v indexech
+
+## Komentáře z hodiny
+- dokumentace ne jednostránková, musí být smysluplná
+- alspoň trošku smysluplné datasety
+- možnost pracovat s hife v dockeru nad postgresql
+- nejlepe stará dse v učebně bez dockeru
+- indeování nejlépe také na této imagi s elasticsearch + kibana
+- indeování úpráva konfuguračního souboru nyc_collision_filebeat.yaml
+
+## Termín odevzdání 
+- 3.1.2018
