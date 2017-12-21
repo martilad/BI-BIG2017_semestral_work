@@ -1,42 +1,61 @@
 import argparse
 import copy
 
-def check_childs(root_tag, tags, file, line_to_write,be_first):
-    if len(root_tag) == 0:
-        print (line_to_write)
-    for child in root_tag:
-        if child.tag not in tags:
-            continue
-        attr = child.attrib
-        for at in attr:
-            if be_first == 0:
-                line_to_write.append(args.d)
-                be_first = 1
-            line_to_write.append(attr[at])
-        check_childs(child, tags, "prdel", copy.deepcopy(line_to_write), be_first)
+
+# class for printing csv from dictionaries. First call create header row.
+class WriteFiles:
+    def __init__(self, write_file, separator):
+        self.file = open(write_file, "a")
+        self.head = []
+        self.separator = separator
+    def write_line(self, dict):
+        if len(self.head) == 0:
+            count = len(dict)
+            for item in dict:
+                count -= 1
+                self.head.append(item)
+                self.file.write(str(item))
+                if (count != 0):
+                    self.file.write(str(self.separator))
+            self.file.write("\n")
+        count = len(self.head)
+        for items in self.head:
+            count -= 1
+            self.file.write(str(dict[items]))
+            if (count != 0):
+                self.file.write(str(self.separator))
+        self.file.write("\n")
+    def __del__(self):
+        self.file.close()
 
 parser = argparse.ArgumentParser("LSH")
-parser.add_argument('-i', help='input file in xml format with relative to path where is call progam', required=True)
-parser.add_argument('-o', help='output file name with relative path to where call this program', required=True)
-parser.add_argument('-t', nargs = "+", help='output file name with relative path to where call this program', required=True)
-parser.add_argument('-d', help='output file name with relative path to where call this program', default = ',')
+parser.add_argument('-i', nargs = "+", help='input file in xml format with relative to path where is call progam', required=True)
+parser.add_argument('-o', nargs = 2, help='output file name with relative path to where call this program', required=True)
+parser.add_argument('-d', help='delimiter in output file', default = ',')
 args = parser.parse_args()
+write_file_ucast = WriteFiles(args.o[0],args.d)
+write_file_hlasy_strana = WriteFiles(args.o[1], args.d)
 import xml.etree.ElementTree as ET
-tags = set(args.t)
-print (tags)
-tree = ET.parse(args.i)
-root = tree.getroot()
-line_to_write = []
-be_first = 0
-if root.tag in tags:
-    attr = child.attrib
-    for at in attr:
-        if be_first == 0:
-            line_to_write.append(args.d)
-            be_first = 1
-        line_to_write.append(attr[at])
-check_childs(root, tags, "prdel", copy.deepcopy(line_to_write), be_first)
-
-
-
-            
+for i in args.i:
+    tree = ET.parse(i)
+    root = tree.getroot()
+    for child in root:
+        if child.tag != "OBEC":
+            continue
+        attr = child.attrib
+        dict = {}
+        for at in attr:
+            dict[at] = attr[at]
+        for chil in child:
+            if chil.tag == "UCAST":
+                dict_ucast = copy.deepcopy(dict)
+                attrU = chil.attrib
+                for atU in attrU:
+                    dict_ucast[atU] = attrU[atU]
+                write_file_ucast.write_line(dict_ucast)
+            if chil.tag == "HLASY_STRANA":
+                dict_strany = copy.deepcopy(dict)
+                attrS = chil.attrib
+                for atS in attrS:
+                    dict_strany[atS] = attrS[atS]
+                write_file_hlasy_strana.write_line(dict_strany)
