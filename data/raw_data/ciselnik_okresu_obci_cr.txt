@@ -1,0 +1,10 @@
+KRAJ - id kraje 
+OKRES - id okresu
+CPOU - 
+ORB - 
+OBEC - id obce
+NAZEVOBCE - textovy nazev obce
+VOLKRAJ - 
+MINIOKRSEK1 - 
+MAXOKRSEK1 - 
+OBEC_PREZ - 

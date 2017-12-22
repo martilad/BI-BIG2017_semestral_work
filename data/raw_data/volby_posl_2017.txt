@@ -1,0 +1,52 @@
+***Data z voleb do poslanecke snemovny 2017 - kompletni zapis komise v obcich a okrscich***
+ID_OKRSKY - id okrsku
+TYP_FORM - data 1 - t/4, 2 - priloha t/4, 3 - ts
+OPRAVA - priznak opravy 1 - ano, 0 - ne
+CHYBA - priznak chyby 1 - chyba, 0 - ne
+OKRES - kod okresu 
+OBEC - kod obce
+OKRSEK - kod okrsku
+KC_1 - kontrolni cislo 1
+KSTRANA - vylosovane cislo strany 
+POC_HLASU - pocet hlasu dane strany 
+KC_2 - kontrolni cislo 2
+HLASY_01 - krozkovani pro kandidata 1
+HLASY_02 - krozkovani pro kandidata 2
+HLASY_03 - krozkovani pro kandidata 3
+HLASY_04 - krozkovani pro kandidata 4
+HLASY_05 - krozkovani pro kandidata 5
+HLASY_06 - krozkovani pro kandidata 6
+HLASY_07 - krozkovani pro kandidata 7
+HLASY_08 - krozkovani pro kandidata 8
+HLASY_09 - krozkovani pro kandidata 9
+HLASY_10 - krozkovani pro kandidata 10
+HLASY_11 - krozkovani pro kandidata 11
+HLASY_12 - krozkovani pro kandidata 12
+HLASY_13 - krozkovani pro kandidata 13
+HLASY_14 - krozkovani pro kandidata 14
+HLASY_15 - krozkovani pro kandidata 15
+HLASY_16 - krozkovani pro kandidata 16
+HLASY_17 - krozkovani pro kandidata 17
+HLASY_18 - krozkovani pro kandidata 18
+HLASY_19 - krozkovani pro kandidata 19
+HLASY_20 - krozkovani pro kandidata 20
+HLASY_21 - krozkovani pro kandidata 21
+HLASY_22 - krozkovani pro kandidata 22
+HLASY_23 - krozkovani pro kandidata 23
+HLASY_24 - krozkovani pro kandidata 24
+HLASY_25 - krozkovani pro kandidata 25
+HLASY_26 - krozkovani pro kandidata 26
+HLASY_27 - krozkovani pro kandidata 27
+HLASY_28 - krozkovani pro kandidata 28
+HLASY_29 - krozkovani pro kandidata 29
+HLASY_30 - krozkovani pro kandidata 30
+HLASY_31 - krozkovani pro kandidata 31
+HLASY_32 - krozkovani pro kandidata 32
+HLASY_33 - krozkovani pro kandidata 33
+HLASY_34 - krozkovani pro kandidata 34
+HLASY_35 - krozkovani pro kandidata 35
+HLASY_36 - krozkovani pro kandidata 36 
+KC_3 - kontrolni cislo 3
+KC_4 - kontrolni cislo 4
+POSL_KAND - posledni cislo kandidata co mel prednostni hlasy
+KC_SUM - sumarni kontrolni cislo t4

@@ -1,0 +1,11 @@
+idhod - 
+hodnota - 
+vuk - 
+vuk_text - 
+stapro_kod -
+vuzemi_cis - 
+vuzemi_kod - 
+rok - 
+casref_od - 
+casref_do - 
+vuzemi_txt - 
