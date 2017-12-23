@@ -1,0 +1,54 @@
+docker cp data/ciselnik_okresu_obci_cr.csv hive-server:/data/ciselnik_okresu_obci_cr.csv
+
+create table ciselnik_pol_stran(VSTRANA int, NAZEVCELK string, NAZEV_STRV string, ZKRATKAV30 string, ZKRATKAV8 string, POCSTR_SLO string, SLOZENI string, ZKRATKA_OF string, TYPVS string ) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
+
+create table ciselnik_okresu_obci_cr(KRAJ int, OKRES int, CPOU string, ORB string, OBEC int, NAZEVOBCE string, VOLKRAJ string, MINIOKRSEK1 string, RUIAN string, MAXOKRSEK1 string, OBEC_PREZ int ) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
+
+create table kstrana_vstrana_2017(KSTRANA int, VSTRANA int, NAZEVCELK string ) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
+
+create table souradnice(OBEC string, KODOBCE int, OKRES string, KODOKRESU string, KRAJ string, KODKRAJE string, PSC string, LATITUDE double, LONGITUDE double ) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
+
+create table demograficka_data(IDHOD int, HODNOTA double, VUK string, VUK_TEXT string, STAPRO_KOD int, VUZEMI_CIS int, VUZEMI_KOD int, ROK int, CASREF_OD string, CASRED_DO string, VUZEMI_TXT string) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
+
+create table scitani_lidu_2011(TYPUZ_NAZ string, NAZEV string, UZCIS int, UZKOD int, U01 double, U02 double, U03 double, U04 double, U05 double, U06 double, U07 double, U08 double, U09 double, U10 double, U11 double) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
+
+
+create table volby_posl_2017(ID_OKRSKY int,TYP_FORM int,OPRAVA int,CHYBA int,OKRES int,OBEC int,OKRSEK int,KC_1 int,KSTRANA int,POC_HLASU int,KC_2 int,HLASY_01 int,HLASY_02 int,HLASY_03 int,HLASY_04 int,HLASY_05 int,HLASY_06 int,HLASY_07 int,HLASY_08 int,HLASY_09 int,HLASY_10 int,HLASY_11 int,HLASY_12 int,HLASY_13 int,HLASY_14 int,HLASY_15 int,HLASY_16 int,HLASY_17 int,HLASY_18 int,HLASY_19 int,HLASY_20 int,HLASY_21 int,HLASY_22 int,HLASY_23 int,HLASY_24 int,HLASY_25 int,HLASY_26 int,HLASY_27 int,HLASY_28 int,HLASY_29 int,HLASY_30 int,HLASY_31 int,HLASY_32 int,HLASY_33 int,HLASY_34 int,HLASY_35 int,HLASY_36 int,KC_3 int,KC_4 int,POSL_KAND int,KC_SUM int) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
+
+
+
+
+LOAD DATA LOCAL INPATH '/data/ciselnik_pol_stran.csv' overwrite into table ciselnik_pol_stran;
+
+LOAD DATA LOCAL INPATH '/data/ciselnik_okresu_obci_cr.csv' overwrite into table ciselnik_okresu_obci_cr;
+
+ LOAD DATA LOCAL INPATH '/data/kstrana_vstrana_2017.csv' overwrite into table kstrana_vstrana_2017;
+
+ LOAD DATA LOCAL INPATH '/data/souradnice.csv' overwrite into table souradnice;
+
+LOAD DATA LOCAL INPATH '/data/demograficka_data.csv' overwrite into table demograficka_data;
+
+LOAD DATA LOCAL INPATH '/data/scitani_lidu_2011.csv' overwrite into table scitani_lidu_2011;
+
+LOAD DATA LOCAL INPATH '/data/volby_posl_2017.csv' overwrite into table volby_posl_2017;
+
+
+CREATE TABLE prum_dem_ukaz AS SELECT vuk_text demograficka_udaj,AVG(hodnota) AS prum_obec FROM demograficka_data WHERE vuzemi_cis = 43 GROUP BY vuk_text;
+
+CREATE TABLE celkovy_prirustek_2016 AS SELECT vuk_text demograficka_udaj,SUM(hodnota) AS prum_obec FROM demograficka_data WHERE vuzemi_cis = 43 AND vuk ='DEM0012' GROUP BY vuk_text;
+
+CREATE TABLE procento_zen_obce AS SELECT nazev, (u03/u01)*100 AS zeny FROM scitani_lidu_2011 WHERE typuz_naz = 'obec';
+
+CREATE TABLE per_vyuz_prefer AS SELECT nazev, u06/u01 AS duchodci, (u07)/u01 AS zamestnani, (u04)/u01 AS deti, AVG((HLASY_01 + HLASY_02 + HLASY_03 + HLASY_04 + HLASY_05 + HLASY_06 + HLASY_07 + HLASY_08 + HLASY_09 + HLASY_10 + HLASY_11 + HLASY_12 + HLASY_13 + HLASY_14 + HLASY_15 + HLASY_16 + HLASY_17 + HLASY_18 + HLASY_19 + HLASY_20 + HLASY_21 + HLASY_22 + HLASY_23 + HLASY_24 + HLASY_25 + HLASY_26 + HLASY_27 + HLASY_28 + HLASY_29 + HLASY_30 + HLASY_31 + HLASY_32 + HLASY_33 + HLASY_34 + HLASY_35 + HLASY_36)/4/poc_hlasu) * 100 AS per_pref FROM scitani_lidu_2011 INNER JOIN volby_posl_2017 ON uzkod = obec GROUP BY nazev, u01, u06, u07, u04;
+
+
+
+CREATE TABLE volby_scitani AS SELECT  a.vstrana as kod_strany, a.nazevcelk as strana, a.zkratka_of AS zkrat_strana, c.poc_hlasu AS hlasu, d.obec AS obec, d.kodobce AS kod_obce, d.latitude as latitude, d.longitude AS longitude, d.kraj AS kraj, d.okres AS okres, e.u01 AS obyvatelstvo, e.u02 AS muzi, e.u03 AS zeny, e.u04 AS deti, e.u05 AS stredni, e.u06 AS duchodci, e.u07 AS ek_aktiv, e.u08 AS zamestnani from ciselnik_pol_stran as a inner join kstrana_vstrana_2017 as b on a.vstrana = b.vstrana INNER JOIN volby_posl_2017 as c on c.kstrana = b.kstrana INNER JOIN souradnice as d on d.kodobce = c.obec INNER JOIN scitani_lidu_2011 as e on e.uzkod = d.kodobce;
+
+
+
+insert overwrite local directory '/data' row format delimited fields terminated by ',' select * from volby_scitani;
+docker cp hive-server:/data/<name_of_gnerated_file> <path_to_BIG_folder/BIG_semestral_work/data>
+mv <name_of_gnerated_file> volby_scitani.csv
+
+
