@@ -1,0 +1,9 @@
+VSTRANA - kod volebni strany
+NAZEVCELK - nazev volebni strany
+NAZEV_STRV - nazev strany 50 znaku
+ZKRATKAV30 - zkratka 30 znaku
+ZKRATKAV8 - zkratka 8 znaku
+POCSTR_SLO - pocet politickych subjektu ve slozeni volebni strany
+SLOZENI - svlozeni volebni strany kod??
+ZKRATKA_OF - oficialni zkratka strany
+TYPVS - typ volebni strany S - politicka strana, K - koalice, N - nezavisli, D - zdruzeni

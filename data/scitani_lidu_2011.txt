@@ -1,0 +1,15 @@
+typuz_naz - typ uzemi, stat, kraj, okres, obec
+nazev - nazev uzemi
+uzcis - kod uzemni 43 - obec, 65 - spravni obvod, 72 - spravni obvod prahy, 97 - cr, 100 - kraj, 101 - okres
+uzkod - kod uzemniho ciselniku
+u01 - obyvatelstvo celkem
+u02 - obyvatelstvo muzi
+u03 - obyvtelstvo zeny
+u04 - lidi vek 0-14
+u05 - lidi vek 15-64
+u06 - lide 65 a vice
+u07 - ekonomicky aktivni
+u08 - ekonomicky aktivni zamestanani
+u09 - obydlene domy
+u10 - obydlene byty
+u11 - hospodarici domacnosti

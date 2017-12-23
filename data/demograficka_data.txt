@@ -1,0 +1,11 @@
+idhod - unikatni id databaze csu 
+hodnota - zjistena hodnota
+vuk - kod vystupniho ukazatele verejne databaze
+vuk_text - nazev vystupniho ukazatele
+stapro_kod -kod statisticko promenne ze systemu SMS UKAZ
+vuzemi_cis - kod iselniku pro referencni uzemi, typologie uzemi
+vuzemi_kod - kod polozku pro referencni uzemi 
+rok - referencni obdobi
+casref_od - zacatek intervalu
+casref_do - konec intervalu
+vuzemi_txt - text z polozky pro referencni uzemi
