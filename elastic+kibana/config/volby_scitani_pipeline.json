@@ -1,0 +1,68 @@
+{
+    "description": "volby_scitani",
+    "processors": [
+      {
+        "grok": {
+          "field": "message",
+          "patterns": [
+            "%{DATA:kod_strany},%{DATA:strana},%{DATA:zkrat_strana},%{DATA:hlasu},%{DATA:obec},%{DATA:kod_obce},%{LOCATION:location},%{DATA:kraj},%{DATA:okres},%{DATA:obyvatelstvo},%{DATA:muzi},%{DATA:zeny},%{DATA:deti},%{DATA:stredni},%{DATA:duchodci},%{DATA:ek_aktiv},%{DATA:zamestnani}"
+          ],
+          "pattern_definitions": {
+            "LOCATION": "%{BASE10NUM},%{BASE10NUM}"
+          },
+          "ignore_failure": true
+        }
+      },
+      {
+        "trim": {
+          "field": "strana",
+          "ignore_failure": true
+        }
+      },
+      {
+        "trim": {
+          "field": "zkrat_strana",
+          "ignore_failure": true
+        }
+      },
+      {
+        "trim": {
+          "field": "obec",
+          "ignore_failure": true
+        }
+      },
+      {
+        "trim": {
+          "field": "kraj",
+          "ignore_failure": true
+        }
+      },
+      {
+        "trim": {
+          "field": "okres",
+          "ignore_failure": true
+        }
+      },
+      {
+        "convert": {
+          "field": "kod_strany",
+          "type": "integer",
+          "ignore_failure": true
+        }
+      },
+      {
+        "convert": {
+          "field": "hlasu",
+          "type": "integer",
+          "ignore_failure": true
+        }
+      },
+      {
+        "convert": {
+          "field": "kod_obce",
+          "type": "integer",
+          "ignore_failure": true
+        }
+      }
+    ]
+}

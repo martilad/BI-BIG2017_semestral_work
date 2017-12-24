@@ -1,0 +1,11 @@
+filebeat.prospectors:
+- type: log
+  paths:
+    - ./volby_scitani/volby_scitani.csv
+
+output.elasticsearch:
+  hosts: ["localhost:9200"]
+  index: volby_vision
+  pipeline: volby_scitani
+
+setup.template.enabled: false

@@ -1,0 +1,97 @@
+{
+  "index_patterns": "volby_vision",
+  "settings": {
+    "index.refresh_interval": "5s"
+  },
+  "mappings": {
+    "doc": {
+      "dynamic_templates": [
+        {
+          "string_fields": {
+            "mapping": {
+              "type": "text",
+              "omit_norms": true,
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            },
+            "match_mapping_type": "string",
+            "match": "*"
+          }
+        }
+      ],
+      "properties": {
+        "location": {
+          "type": "geo_point",
+          "ignore_malformed": true
+        },
+        "@version": {
+          "type": "keyword"
+        },
+        "kod_strany": {
+          "type": "integer",
+          "ignore_malformed": true
+        },
+        "strana": {
+          "type": "keyword"
+        },
+        "zkrat_strana": {
+          "type": "keyword"
+        },
+        "hlasu": {
+          "type": "integer",
+          "ignore_malformed": true
+        },
+        "obec": {
+          "type": "keyword"
+        },
+        "kod_obce": {
+          "type": "integer",
+          "ignore_malformed": true
+        },
+        "kraj": {
+          "type": "keyword"
+        },
+        "okres": {
+          "type": "keyword"
+        },
+        "obyvatelstvo": {
+          "type": "float",
+          "ignore_malformed": true
+        },
+        "muzi": {
+          "type": "float",
+          "ignore_malformed": true
+        },
+        "zeny": {
+          "type": "float",
+          "ignore_malformed": true
+        },
+        "deti": {
+          "type": "float",
+          "ignore_malformed": true
+        },
+        "stredni": {
+          "type": "float",
+          "ignore_malformed": true
+        },
+        "duchodci": {
+          "type": "float",
+          "ignore_malformed": true
+        },
+        "ek_aktiv": {
+          "type": "float",
+          "ignore_malformed": true
+        },
+        "zamestnani": {
+          "type": "float",
+          "ignore_malformed": true
+        }
+      }
+    }
+  },
+  "aliases": {}
+}

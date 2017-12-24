@@ -1,0 +1,124 @@
+[
+  {
+    "_id": "e33c4c30-e8af-11e7-8c64-e102513862fc",
+    "_type": "dashboard",
+    "_source": {
+      "title": "Dashboard semestr work",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"panelIndex\":\"1\",\"gridData\":{\"x\":0,\"y\":0,\"w\":6,\"h\":4,\"i\":\"1\"},\"id\":\"78463f80-e8af-11e7-8c64-e102513862fc\",\"type\":\"visualization\",\"version\":\"6.1.0\"},{\"panelIndex\":\"2\",\"gridData\":{\"x\":6,\"y\":0,\"w\":6,\"h\":4,\"i\":\"2\"},\"id\":\"b6647ce0-e8ab-11e7-8c64-e102513862fc\",\"type\":\"visualization\",\"version\":\"6.1.0\"},{\"panelIndex\":\"3\",\"gridData\":{\"x\":0,\"y\":4,\"w\":6,\"h\":4,\"i\":\"3\"},\"id\":\"e130f660-e8b0-11e7-8c64-e102513862fc\",\"type\":\"visualization\",\"version\":\"6.1.0\"},{\"panelIndex\":\"4\",\"gridData\":{\"x\":6,\"y\":4,\"w\":6,\"h\":4,\"i\":\"4\"},\"version\":\"6.1.0\",\"type\":\"visualization\",\"id\":\"84bf9420-e8b2-11e7-8c64-e102513862fc\"},{\"panelIndex\":\"5\",\"gridData\":{\"x\":0,\"y\":8,\"w\":12,\"h\":8,\"i\":\"5\"},\"version\":\"6.1.0\",\"type\":\"visualization\",\"id\":\"e74d6040-e8b2-11e7-8c64-e102513862fc\"},{\"panelIndex\":\"6\",\"gridData\":{\"x\":0,\"y\":16,\"w\":12,\"h\":7,\"i\":\"6\"},\"version\":\"6.1.0\",\"type\":\"visualization\",\"id\":\"38763370-e8b3-11e7-8c64-e102513862fc\"}]",
+      "optionsJSON": "{\"darkTheme\":true,\"hidePanelTitles\":false,\"useMargins\":true}",
+      "uiStateJSON": "{\"P-1\":{\"mapCenter\":[49.88755653624285,15.444030761718752],\"mapZoom\":7},\"P-3\":{\"mapCenter\":[49.87339770318921,15.666503906250002],\"mapZoom\":7}}",
+      "version": 1,
+      "timeRestore": false,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"language\":\"lucene\",\"query\":\"\"},\"filter\":[],\"highlightAll\":true,\"version\":true}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "b6647ce0-e8ab-11e7-8c64-e102513862fc",
+    "_type": "visualization",
+    "_source": {
+      "title": "Výsledky voleb",
+      "visState": "{\"title\":\"Výsledky voleb\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"hlasu\",\"customLabel\":\"Pocet hlasu strany\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"strana\",\"size\":18,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Volebni strany ve volbach\"}}]}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"35fce520-e8aa-11e7-8c64-e102513862fc\",\"filter\":[],\"query\":{\"query\":\"\",\"language\":\"lucene\"}}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "78463f80-e8af-11e7-8c64-e102513862fc",
+    "_type": "visualization",
+    "_source": {
+      "title": "Průměrné procento žen",
+      "visState": "{\"title\":\"Průměrné procento žen\",\"type\":\"tile_map\",\"params\":{\"mapType\":\"Heatmap\",\"isDesaturated\":true,\"addTooltip\":true,\"heatClusterSize\":1.4,\"legendPosition\":\"topleft\",\"mapZoom\":2,\"mapCenter\":[0,0],\"wms\":{\"enabled\":false,\"options\":{\"format\":\"image/png\",\"transparent\":true}}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"zeny\",\"customLabel\":\"Průmerné procent žen v oblastech\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"geohash_grid\",\"schema\":\"segment\",\"params\":{\"field\":\"location\",\"autoPrecision\":true,\"isFilteredByCollar\":true,\"useGeocentroid\":true,\"precision\":4}}]}",
+      "uiStateJSON": "{\"mapCenter\":[49.88578690918283,15.444030761718752],\"mapZoom\":8}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"35fce520-e8aa-11e7-8c64-e102513862fc\",\"filter\":[],\"query\":{\"language\":\"lucene\",\"query\":\"\"}}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "e130f660-e8b0-11e7-8c64-e102513862fc",
+    "_type": "visualization",
+    "_source": {
+      "title": "Procento důchodců v republice",
+      "visState": "{\"title\":\"Procento důchodců v republice\",\"type\":\"tile_map\",\"params\":{\"mapType\":\"Heatmap\",\"isDesaturated\":true,\"addTooltip\":true,\"heatClusterSize\":1.5,\"legendPosition\":\"bottomright\",\"mapZoom\":2,\"mapCenter\":[0,0],\"wms\":{\"enabled\":false,\"options\":{\"format\":\"image/png\",\"transparent\":true}}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"duchodci\",\"customLabel\":\"prumerne duchodců\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"geohash_grid\",\"schema\":\"segment\",\"params\":{\"field\":\"location\",\"autoPrecision\":true,\"isFilteredByCollar\":true,\"useGeocentroid\":true,\"precision\":4}}]}",
+      "uiStateJSON": "{\"mapZoom\":8,\"mapCenter\":[49.87339770318921,15.663757324218752]}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"35fce520-e8aa-11e7-8c64-e102513862fc\",\"filter\":[{\"meta\":{\"negate\":false,\"index\":\"35fce520-e8aa-11e7-8c64-e102513862fc\",\"type\":\"geo_bounding_box\",\"key\":\"location\",\"value\":\"{\\n  \\\"lat\\\": 51.50874245880335,\\n  \\\"lon\\\": 9.580078125\\n} to {\\n  \\\"lat\\\": 47.81315451752768,\\n  \\\"lon\\\": 22.5\\n}\",\"params\":{\"bottom_right\":{\"lat\":47.81315451752768,\"lon\":22.5},\"top_left\":{\"lat\":51.50874245880335,\"lon\":9.580078125}},\"disabled\":false,\"alias\":null},\"geo_bounding_box\":{\"ignore_unmapped\":true,\"location\":{\"bottom_right\":{\"lat\":47.81315451752768,\"lon\":22.5},\"top_left\":{\"lat\":51.50874245880335,\"lon\":9.580078125}}},\"$state\":{\"store\":\"appState\"}}],\"query\":{\"query\":\"\",\"language\":\"lucene\"}}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "84bf9420-e8b2-11e7-8c64-e102513862fc",
+    "_type": "visualization",
+    "_source": {
+      "title": "Procento ekonomicky aktivních",
+      "visState": "{\"title\":\"Procento ekonomicky aktivních\",\"type\":\"histogram\",\"params\":{\"type\":\"histogram\",\"grid\":{\"categoryLines\":false,\"style\":{\"color\":\"#eee\"}},\"categoryAxes\":[{\"id\":\"CategoryAxis-1\",\"type\":\"category\",\"position\":\"bottom\",\"show\":true,\"style\":{},\"scale\":{\"type\":\"linear\"},\"labels\":{\"show\":true,\"truncate\":100},\"title\":{}}],\"valueAxes\":[{\"id\":\"ValueAxis-1\",\"name\":\"LeftAxis-1\",\"type\":\"value\",\"position\":\"left\",\"show\":true,\"style\":{},\"scale\":{\"type\":\"linear\",\"mode\":\"normal\"},\"labels\":{\"show\":true,\"rotate\":0,\"filter\":false,\"truncate\":100},\"title\":{\"text\":\"Procento ekonommicky aktivních\"}}],\"seriesParams\":[{\"show\":\"true\",\"type\":\"histogram\",\"mode\":\"stacked\",\"data\":{\"label\":\"Procento ekonommicky aktivních\",\"id\":\"1\"},\"valueAxis\":\"ValueAxis-1\",\"drawLinesBetweenPoints\":true,\"showCircles\":true}],\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"times\":[],\"addTimeMarker\":false},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"ek_aktiv\",\"customLabel\":\"Procento ekonommicky aktivních\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"kraj\",\"size\":13,\"order\":\"desc\",\"orderBy\":\"1\"}}]}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"35fce520-e8aa-11e7-8c64-e102513862fc\",\"filter\":[],\"query\":{\"query\":\"\",\"language\":\"lucene\"}}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "e74d6040-e8b2-11e7-8c64-e102513862fc",
+    "_type": "visualization",
+    "_source": {
+      "title": "Výsledky voleb v krajích",
+      "visState": "{\"title\":\"Výsledky voleb v krajích\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"hlasu\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"kraj\",\"size\":14,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"strana\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}]}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"35fce520-e8aa-11e7-8c64-e102513862fc\",\"filter\":[],\"query\":{\"query\":\"\",\"language\":\"lucene\"}}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "38763370-e8b3-11e7-8c64-e102513862fc",
+    "_type": "visualization",
+    "_source": {
+      "title": "Maximální procento mužu ve nějaké vesnici v okrese",
+      "visState": "{\"title\":\"Maximální procento mužu ve nějaké vesnici v okrese\",\"type\":\"line\",\"params\":{\"type\":\"line\",\"grid\":{\"categoryLines\":false,\"style\":{\"color\":\"#eee\"}},\"categoryAxes\":[{\"id\":\"CategoryAxis-1\",\"type\":\"category\",\"position\":\"bottom\",\"show\":true,\"style\":{},\"scale\":{\"type\":\"linear\"},\"labels\":{\"show\":true,\"truncate\":100},\"title\":{}}],\"valueAxes\":[{\"id\":\"ValueAxis-1\",\"name\":\"LeftAxis-1\",\"type\":\"value\",\"position\":\"left\",\"show\":true,\"style\":{},\"scale\":{\"type\":\"linear\",\"mode\":\"normal\"},\"labels\":{\"show\":true,\"rotate\":0,\"filter\":false,\"truncate\":100},\"title\":{\"text\":\"Max muzi\"}}],\"seriesParams\":[{\"show\":\"true\",\"type\":\"line\",\"mode\":\"normal\",\"data\":{\"label\":\"Max muzi\",\"id\":\"1\"},\"valueAxis\":\"ValueAxis-1\",\"drawLinesBetweenPoints\":true,\"showCircles\":true}],\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"times\":[],\"addTimeMarker\":false},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"muzi\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"okres\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\"}}]}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"35fce520-e8aa-11e7-8c64-e102513862fc\",\"filter\":[],\"query\":{\"query\":\"\",\"language\":\"lucene\"}}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  }
+]
