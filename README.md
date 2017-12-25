@@ -2,12 +2,12 @@
 # Semestrální práce z předmětu BI-BIG
 Úkázka práce s technologiemi pro zpracování, analyzování velkého množství dat. V práci bude předvedena práce s Apache Hive, Elasticsearch a Kibana. Popis celého exprimentu je k dispozici ve složce doc/, podle dokumentace a tohoto repozitáře by měl jít celý experiment replikovat.
 
-##Technologie
+## Technologie
 - Apache Hive
 - Elasticsearch + Kibana
 - Filebeat
 
-##Datové sady
+## Datové sady
 - volby do poslanecké sněmovny 2017
 - sčítání lidu 2011
 - demografické údaje o pohybu obyvatel v roce 2016
