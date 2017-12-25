@@ -1,6 +1,18 @@
 
 # Semestrální práce z předmětu BI-BIG
-Jedná se o implementaci a předvedení fukčnosti dotazů a řešení nad námi zvolenými technologiemi. Jedná se především o dotazy a agregace a indexování. Nutné zpracovat důkladnou dokumentaci.
+Úkázka práce s technologiemi pro zpracování, analyzování velkého množství dat. V práci bude předvedena práce s Apache Hive, Elasticsearch a Kibana. Popis celého exprimentu je k dispozici ve složce doc/, podle dokumentace a tohoto repozitáře by měl jít celý experiment replikovat.
+
+##Technologie
+- Apache Hive
+- Elasticsearch + Kibana
+- Filebeat
+
+##Datové sady
+- volby do poslanecké sněmovny 2017
+- sčítání lidu 2011
+- demografické údaje o pohybu obyvatel v roce 2016
+- seznam obcí s jejich souřadnicemi
+- číselníky pro datové sady
 
 >>>
 ## Zadání semestrální úlohy
@@ -28,11 +40,6 @@ Semestrální práce může být na libovolné téma, důležité je dodržet n�
   -  popis použitých technologií (high-level, jaké nástroje jsou použity)
   -  v příloze použité konfigurační soubory (např. pro search engine)
   -  na základě dokumentace by mělo být možné se vstupními datasety kompletně replikovat vaší práci!
->>>
-
-## Využití technologií
-- cassandra v dockeru pro uložení dat v NOSQL databázi
-- elasticsearch + kibana pro indexování a hlední v indexech
 
 ## Komentáře z hodiny
 - dokumentace ne jednostránková, musí být smysluplná
@@ -44,3 +51,5 @@ Semestrální práce může být na libovolné téma, důležité je dodržet n�
 
 ## Termín odevzdání 
 - 3.1.2018
+
+>>>
