@@ -1,5 +1,7 @@
-
 # Semestrální práce z předmětu BI-BIG
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Úkázka práce s technologiemi pro zpracování, analyzování velkého množství dat. V práci bude předvedena práce s Apache Hive, Elasticsearch a Kibana. Popis celého exprimentu je k dispozici ve složce doc/, podle dokumentace a tohoto repozitáře by měl jít celý experiment replikovat.
 
 ## Technologie
@@ -52,4 +54,6 @@ Semestrální práce může být na libovolné téma, důležité je dodržet n�
 ## Termín odevzdání 
 - 3.1.2018
 
->>>
+## License
+This project is licensed under the **MIT**.
+
